@@ -6,6 +6,8 @@ int main()
 {
 	BST Tree;
 
+
+	//ADD
 	Tree.addNode(10);
 	Tree.addNode(5);
 	Tree.addNode(3);
@@ -14,6 +16,22 @@ int main()
 	Tree.addNode(12);
 	Tree.addNode(5);
 	Tree.addNode(34);
+
+	//SEARCH
+	int key = 1;
+
+	if (Tree.SEARCH(key) != nullptr)
+		std::cout << "Found node with key " << key << std::endl;
+	else
+		std::cout << "There is no node with key " << key << std::endl;
+
+	//MINIMUM 
+	std::cout << "MIN: " << Tree.MINIMUM()->key << std::endl;
+	//MAX
+	std::cout << "MAX: " << Tree.MAX()->key << std::endl;
+
+	//SUCCESSOR
+	std::cout << "SUCCESSOR " << Tree.SUCCESSOR(Tree.SEARCH(3))->key << std::endl;
 
 
 	return 0;

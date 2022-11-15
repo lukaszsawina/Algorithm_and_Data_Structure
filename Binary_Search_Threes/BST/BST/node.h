@@ -3,10 +3,9 @@ class node
 {
 public:
 	int key;
-	node* p;
-	node* l = nullptr;
-	node* r = nullptr;
-	node();
+	node* p;	//Parent
+	node* l = nullptr;	//Left node
+	node* r = nullptr;	//Right node
 	node(int keyValue);
 };
 
