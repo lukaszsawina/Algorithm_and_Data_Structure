@@ -19,7 +19,11 @@ public:
 	void addNode(int key);
 	node* SEARCH(int k);
 	node* MINIMUM();
+	node* MINIMUM(node * n);
 	node* MAX();
+	node* MAX(node* n);
 	node* SUCCESSOR(node* x);
+	void TRANSPLANT(node* u, node* v);
+	void DELETE(node* z);
 };
 

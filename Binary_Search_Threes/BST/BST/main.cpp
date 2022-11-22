@@ -16,6 +16,8 @@ int main()
 	Tree.addNode(12);
 	Tree.addNode(5);
 	Tree.addNode(34);
+	Tree.addNode(6);
+	Tree.addNode(8);
 
 	//SEARCH
 	int key = 1;
@@ -33,6 +35,7 @@ int main()
 	//SUCCESSOR
 	std::cout << "SUCCESSOR " << Tree.SUCCESSOR(Tree.SEARCH(3))->key << std::endl;
 
+	Tree.DELETE(Tree.SEARCH(5));
 
 	return 0;
 }

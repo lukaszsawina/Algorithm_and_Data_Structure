@@ -80,9 +80,24 @@ node* BST::MINIMUM()
 	return ptr;
 }
 
+node* BST::MINIMUM(node* n)
+{
+	node* ptr = n;
+	while (ptr->l != nullptr)	//Go on first element on left
+		ptr = ptr->l;
+	return ptr;
+}
+
 node* BST::MAX()
 {
 	node* ptr = root;
+	while (ptr->r != nullptr)	//Go on first element on right
+		ptr = ptr->r;
+	return ptr;
+}
+node* BST::MAX(node* n)
+{
+	node* ptr = n;
 	while (ptr->r != nullptr)	//Go on first element on right
 		ptr = ptr->r;
 	return ptr;
@@ -100,4 +115,39 @@ node* BST::SUCCESSOR(node* x)
 		y = y->p;
 	}
 	return y;
+}
+
+void BST::TRANSPLANT(node* u, node* v)
+{
+	if (u->p == nullptr)
+		root = v;
+	else if (u = u->p->l)
+		u->p->l = v;
+	else
+		u->p->r = v;
+
+	if (v != nullptr)
+		v->p = u->p;
+}
+
+void BST::DELETE(node* z)
+{
+	if (z->l == nullptr)
+		TRANSPLANT(z, z->r);
+	else if (z->r == nullptr)
+		TRANSPLANT(z, z->l);
+	else
+	{
+		node * y = MINIMUM(z->r);
+		if (y->p != z)
+		{
+			TRANSPLANT(y, y->r);
+			y->r = z->r;
+			y->r->p = y;
+		}
+		TRANSPLANT(z, y);
+		y->l = z->l;
+		y->l->p = y;
+
+	}
 }
