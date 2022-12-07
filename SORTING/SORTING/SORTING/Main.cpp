@@ -1,13 +1,17 @@
 ﻿#include <iostream>
 
+//O(n^2)
 void INSORTION_SORT(int* tab, int n);
-
+//O(nlogn)
 void MERGE_SORT(int* tab, int p, int r);
 void MERGE(int* arr, int p, int q, int r);
 
+//O(nlogn)
+void QUICK_SORT(int* tab, int p, int r);
+int PARTITION(int* tab, int p, int r);
 
 
-
+void swap(int* l, int* p);
 
 int main()
 {
@@ -24,7 +28,8 @@ int main()
 
 
 	//INSORTION_SORT(tab,size);
-	MERGE_SORT(tab, 0, size - 1);
+	//MERGE_SORT(tab, 0, size - 1);
+	QUICK_SORT(tab, 0, size - 1);
 
 	for (int i = 0; i < size; i++)
 		std::cout << tab[i] << ' ';
@@ -112,4 +117,37 @@ void MERGE(int* arr, int p, int q, int r)
 
 	delete[]L;
 	delete[]M;
+}
+
+void QUICK_SORT(int* tab, int p, int r)
+{
+	if (p < r)
+	{
+		int q = PARTITION(tab, p, r);
+		QUICK_SORT(tab, p, q-1);
+		QUICK_SORT(tab, q + 1, r);
+	}
+}
+
+int PARTITION(int* tab, int p, int r)
+{
+	int pivot = tab[r];
+	int i = p - 1;
+	for (int j = p; j <= r - 1; j++)
+	{
+		if (tab[j] <= pivot)
+		{
+			i++;
+			swap(&tab[i], &tab[j]);
+		}
+	}
+	swap(&tab[i + 1], &tab[r]);
+	return i + 1;
+}
+
+void swap(int* l, int* p)
+{
+	int tmp = *l;
+	*l = *p;
+	*p = tmp;
 }
