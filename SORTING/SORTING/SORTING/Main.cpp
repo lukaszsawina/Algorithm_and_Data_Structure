@@ -1,6 +1,13 @@
-#include <iostream>
+﻿#include <iostream>
 
 void INSORTION_SORT(int* tab, int n);
+
+void MERGE_SORT(int* tab, int p, int r);
+void MERGE(int* arr, int p, int q, int r);
+
+
+
+
 
 int main()
 {
@@ -16,8 +23,8 @@ int main()
 	std::cout << std::endl;
 
 
-	INSORTION_SORT(tab,size);
-
+	//INSORTION_SORT(tab,size);
+	MERGE_SORT(tab, 0, size - 1);
 
 	for (int i = 0; i < size; i++)
 		std::cout << tab[i] << ' ';
@@ -40,4 +47,69 @@ void INSORTION_SORT(int* tab, int n)
 		}
 		tab[j + 1] = key;	//Set key at proper position
 	}
+}
+
+void MERGE_SORT(int* tab, int p, int r)
+{
+	if (p < r)
+	{
+		int q = ((p + r) / 2);
+		MERGE_SORT(tab, p, q);
+		MERGE_SORT(tab, q+1, r);
+		MERGE(tab, p, q, r);
+	}
+}
+
+void MERGE(int* arr, int p, int q, int r)
+{
+
+	// Create L ← A[p..q] and M ← A[q+1..r]
+	int n1 = q - p + 1;
+	int n2 = r - q;
+
+
+	int* L = new int[n1];
+	int* M = new int[n2];
+
+	for (int i = 0; i < n1; i++)
+		L[i] = arr[p + i];
+	for (int j = 0; j < n2; j++)
+		M[j] = arr[q + 1 + j];
+
+	// Maintain current index of sub-arrays and main array
+	int i, j, k;
+	i = 0;
+	j = 0;
+	k = p;
+
+	// Until we reach either end of either L or M, pick larger among
+	// elements L and M and place them in the correct position at A[p..r]
+	while (i < n1 && j < n2) {
+		if (L[i] <= M[j]) {
+			arr[k] = L[i];
+			i++;
+		}
+		else {
+			arr[k] = M[j];
+			j++;
+		}
+		k++;
+	}
+
+	// When we run out of elements in either L or M,
+	// pick up the remaining elements and put in A[p..r]
+	while (i < n1) {
+		arr[k] = L[i];
+		i++;
+		k++;
+	}
+
+	while (j < n2) {
+		arr[k] = M[j];
+		j++;
+		k++;
+	}
+
+	delete[]L;
+	delete[]M;
 }
