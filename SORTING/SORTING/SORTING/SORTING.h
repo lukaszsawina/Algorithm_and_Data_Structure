@@ -14,7 +14,10 @@ int PARTITION(int* tab, int p, int r);
 int RANDOMIZED_PARTITION(int* tab, int p, int r);
 int RANDOM(int p, int r);
 
-
+//O(nlogn)
+void HEAPSORT(int* T, int n);
+void BUILD_MAX_HEAP(int* T, int n);
+void MAX_HEAPIFY(int* T, int n, int i);
 
 
 void swap(int* l, int* p);

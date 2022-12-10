@@ -9,23 +9,24 @@ void showTab(int* T, int n);
 int main()
 {
 	srand(time(NULL));
-	int size = 1000;
+	int size = 10000;
 	int* tab = new int[size];
 
 	for (int i = 0; i < size; i++)
 		tab[i] = rand() % 100;
 
-	showTab(tab, size);
+	//showTab(tab, size);
 	auto start = high_resolution_clock::now();
 
 	//INSORTION_SORT(tab,size);
 	//MERGE_SORT(tab, 0, size - 1);
-	QUICK_SORT(tab, 0, size - 1);
+	//QUICK_SORT(tab, 0, size - 1);
+	HEAPSORT(tab, size);
 
 	auto stop = high_resolution_clock::now();
-	showTab(tab, size);
+	//showTab(tab, size);
 
-	auto duration = duration_cast<microseconds>(stop - start);
+	auto duration = duration_cast<milliseconds>(stop - start);
 	std::cout << "Time: " << duration.count() << " ms" << std::endl;
 
 
