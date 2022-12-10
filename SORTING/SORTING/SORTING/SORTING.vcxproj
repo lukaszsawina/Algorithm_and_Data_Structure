@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="INSORTION.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MERGE.cpp" />
+    <ClCompile Include="QUICKSORT.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SORTING.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
