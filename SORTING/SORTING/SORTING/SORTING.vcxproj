@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="COUNTING_SORT.cpp" />
     <ClCompile Include="HEAPSORT.cpp" />
     <ClCompile Include="INSORTION.cpp" />
     <ClCompile Include="Main.cpp" />

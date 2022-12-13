@@ -30,6 +30,9 @@
     <ClCompile Include="HEAPSORT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="COUNTING_SORT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SORTING.h">

@@ -1,3 +1,2 @@
-﻿  Main.cpp
-C:\dev\Algorithm_and_Data_Structure\SORTING\SORTING\SORTING\Main.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  COUNTING_SORT.cpp
   SORTING.vcxproj -> C:\dev\Algorithm_and_Data_Structure\SORTING\SORTING\x64\Debug\SORTING.exe
