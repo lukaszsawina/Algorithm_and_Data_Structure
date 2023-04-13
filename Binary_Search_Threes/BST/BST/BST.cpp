@@ -121,7 +121,7 @@ void BST::TRANSPLANT(node* u, node* v)
 {
 	if (u->p == nullptr)
 		root = v;
-	else if (u = u->p->l)
+	else if (u == u->p->l)
 		u->p->l = v;
 	else
 		u->p->r = v;
